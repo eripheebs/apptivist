@@ -2,7 +2,7 @@
   "name": "apptivist",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "node_modules/jasmine-node/bin/jasmine-node test/specs/ --verbose"
   },
