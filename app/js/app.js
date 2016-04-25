@@ -1,1 +1,1 @@
-var apptivistApp = angular.module('ApptivistApp', ['ngResource']);
+var apptivistApp = angular.module('apptivistApp', []);

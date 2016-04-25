@@ -3,12 +3,12 @@ var app = express();
 var port = process.env.PORT || 3000;
 var server = require('http').createServer(app);
 
-app.set("views", "./views");
+app.set("views", "app/views");
 app.set("view engine", "pug");
 
-app.use(express.static("public"));
 app.use(express.static("bower_components/angular"));
 app.use(express.static("bower_components/angular-resource"));
+app.use(express.static(__dirname));
 
 app.get('/', function(request, response){
   response.render('index');
