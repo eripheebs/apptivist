@@ -1,5 +1,5 @@
 exports.config = {
-    
+
     //
     // ==================
     // Specify Test Files
@@ -118,7 +118,7 @@ exports.config = {
             // do something
         }
     },
-    
+
     //
     // =====
     // Hooks

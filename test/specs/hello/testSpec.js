@@ -1,3 +1,4 @@
+var webdriverio = require('webdriverio');
 var chai = require('chai');
 var expect = chai.expect;
 
