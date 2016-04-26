@@ -14,6 +14,10 @@ app.get('/', function(request, response){
   response.render('index');
 });
 
+app.get('/users', function(request, response){
+  response.render('users/new');
+});
+
 app.post('/events', function(request, response){
   response.render('index');
 });
@@ -21,6 +25,8 @@ app.post('/events', function(request, response){
 app.get('/events/new', function(request, response){
   response.render('events/new');
 });
+
+
 
 
 server.listen(3000, function(){

@@ -1,6 +1,6 @@
 describe('apptivistApp', function(){
 
-  it('has a form', function(){
+  it('has an event form', function(){
     browser.get('/events/new');
     expect(element(by.id('new-event-title')).isDisplayed()).toBeTruthy();
     expect(element(by.id('new-event-description')).isDisplayed()).toBeTruthy();
@@ -16,6 +16,15 @@ describe('apptivistApp', function(){
     $('#new-event-time').sendKeys('test event time');
     $('#new-event-location').sendKeys('test event location');
     expect(browser.getCurrentUrl()).toEqual('http://localhost:3000/events/new');
+  });
+
+  it('allows the creation of a new user', function(){
+    browser.get('/asssss');
+    expect(element(by.id('new-user-name')).isDisplayed()).toBeTruthy();
+    expect(element(by.id('new-user-username')).isDisplayed()).toBeTruthy();
+    expect(element(by.id('new-user-email')).isDisplayed()).toBeTruthy();
+    expect(element(by.id('new-user-password')).isDisplayed()).toBeTruthy();
+    expect(element(by.id('submit')).isDisplayed()).toBeTruthy();
   });
 
 });
