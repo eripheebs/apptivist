@@ -1,7 +1,7 @@
 apptivistApp.controller('apptivistController',['$scope', '$http', function ($scope, $http) {
 
   this.postEvent = function(eventData){
-    $http.post('/events', eventData);
+    $http.post('/events', eventData, { 'Content-Type': 'application/json;charset=UTF-8' });
   };
 
   this.createEvent = function(){

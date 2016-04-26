@@ -1,10 +1,13 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 var app = express();
 var port = process.env.PORT || 3000;
 var server = require('http').createServer(app);
 
 app.set("views", "app/views");
 app.set("view engine", "pug");
+app.use(bodyParser.json());
+
 
 
 app.use(express.static(__dirname));
@@ -19,7 +22,7 @@ app.get('/users', function(request, response){
 });
 
 app.post('/events', function(request, response){
-  console.log("POST CALLED WITH", request);
+  console.log("POST CALLED WITH", request.body);
 });
 
 app.get('/events/new', function(request, response){
