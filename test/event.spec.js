@@ -1,9 +1,18 @@
-var assert = require('chai').assert;
-describe('Array', function() {
-  describe('#indexOf()', function () {
-    it('should return -1 when the value is not present', function () {
-      assert.equal(-1, [1,2,3].indexOf(5));
-      assert.equal(-1, [1,2,3].indexOf(0));
-    });
+var chai = require('chai');
+var chaiHttp = require('chai-http');
+var shouldHttp = require('should-http');
+var server = require('../app');
+var expect = chai.expect;
+
+chai.use(chaiHttp);
+
+describe('events', function(){
+  it('should list all events on /events GET', function(done){
+    chai.request(server)
+      .get('/events')
+      .end(function(err, res){
+        expect(res).to.have.status(200);
+        done();
+      });
   });
 });
