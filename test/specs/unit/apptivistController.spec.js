@@ -1,21 +1,24 @@
 describe('apptivistController', function() {
+
   beforeEach(module('apptivistApp'));
 
-  var ctrl, httpBackend;
+  var testController, scope;
+
+  beforeEach(inject(function($controller, $httpBackend, $rootScope){
+    scope = $rootScope.$new();
+    testController = $controller('apptivistController', {$scope:scope});
+    httpBackend = $httpBackend;
+  }));
+
   var eventData = {
     title: "sampleEvent",
     description:"sampleDescription",
     time:"sampleTime",
     location:"sampleLocation"};
 
-  beforeEach(inject(function($controller, $httpBackend){
-    ctrl = $controller('apptivistController');
-    httpBackend = $httpBackend;
-  }));
-
   it('posts an event to the server', function(){
     httpBackend.expectPOST("/events",  eventData).respond(201);
-    ctrl.postEvent(eventData);
+    testController.postEvent(eventData);
     httpBackend.flush();
   });
 

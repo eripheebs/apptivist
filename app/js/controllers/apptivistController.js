@@ -1,11 +1,11 @@
 apptivistApp.controller('apptivistController',['$scope', '$http', function ($scope, $http) {
 
+
   this.postEvent = function(eventData){
-    $http.post('/events', eventData);
+    $http.post('/events', '',{params: eventData});
   };
 
   this.createEvent = function(){
-
     return {
       title: $scope.title,
       description: $scope.description,

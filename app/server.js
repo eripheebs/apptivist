@@ -19,8 +19,7 @@ app.get('/users', function(request, response){
 });
 
 app.post('/events', function(request, response){
-  console.log("POST CALLED WITH", request);
-  response.render('index');
+  console.log("POST CALLED WITH", request.query);
 });
 
 app.get('/events/new', function(request, response){
