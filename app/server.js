@@ -6,12 +6,16 @@ var server = require('http').createServer(app);
 app.set("views", "app/views");
 app.set("view engine", "pug");
 
-app.use(express.static("bower_components/angular"));
-app.use(express.static("bower_components/angular-resource"));
+
 app.use(express.static(__dirname));
+
 
 app.get('/', function(request, response){
   response.render('index');
+});
+
+app.get('/events/new', function(request, response){
+  response.render('events/new');
 });
 
 server.listen(3000, function(){
