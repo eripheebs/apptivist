@@ -58,6 +58,69 @@ router.post('/', function(req, res) {
     });
 });
 
+router.put('/:event_id', function(req, res) {
 
+    var results = [];
+
+    var id = req.params.event_id;
+
+    var data = {title: req.body.title,
+      description: req.body.description,
+      time: req.body.time,
+      location: req.body.location
+    };
+
+    pg.connect(connectionString, function(err, client, done) {
+        if(err) {
+          done();
+          console.log(err);
+          return res.status(500).send(json({ success: false, data: err}));
+        }
+
+        client.query("UPDATE events SET title=($1), description=($2), time=($3), location=($4) WHERE id=($5)", [data.title, data.description, data.time, data.location, id]);
+
+        var query = client.query("SELECT * FROM events ORDER BY id ASC");
+
+        query.on('row', function(row) {
+            results.push(row);
+        });
+
+        query.on('end', function() {
+            done();
+            return res.json(results);
+        });
+    });
+
+});
+
+router.delete('/:event_id', function(req, res) {
+
+    var results = [];
+
+    var id = req.params.event_id;
+
+
+    pg.connect(connectionString, function(err, client, done) {
+        if(err) {
+          done();
+          console.log(err);
+          return res.status(500).json({ success: false, data: err});
+        }
+
+        client.query("DELETE FROM events WHERE id=($1)", [id]);
+
+        var query = client.query("SELECT * FROM events ORDER BY id ASC");
+
+        query.on('row', function(row) {
+            results.push(row);
+        });
+
+        query.on('end', function() {
+            done();
+            return res.json(results);
+        });
+    });
+
+});
 
 module.exports = router;
