@@ -14,9 +14,14 @@ app.get('/', function(request, response){
   response.render('index');
 });
 
+app.post('/events', function(request, response){
+  response.render('index');
+});
+
 app.get('/events/new', function(request, response){
   response.render('events/new');
 });
+
 
 server.listen(3000, function(){
   console.log("Server listening on port 3000");

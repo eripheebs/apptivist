@@ -9,7 +9,7 @@ html(lang ="en" ng-app="apptivistApp")
   body(ng-controller="apptivistController as ctrl")
 
 body
-  form(name="NewEvent", method="post")
+  form(name="NewEvent", method="post", action="/events")
     div.input
       span.label Title
       input(type="text", name="title", id="new-event-title"
