@@ -7,8 +7,7 @@ html(lang ="en" ng-app="apptivistApp")
     script(src='../js/controllers/apptivistController.js')
     title apptivistApp
   body(ng-controller="apptivistController as ctrl")
-    p scope is {{ctrl}}
-    form(name="NewEvent", method="post", ng-submit="ctrl.createEvent()")
+    form(name="NewEvent", method="post", ng-submit="ctrl.sendEvent()")
       div.input
         span.label Title
         input(type="text", name="title", id="new-event-title", ng-model="title"

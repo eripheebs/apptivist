@@ -4,13 +4,18 @@ apptivistApp.controller('apptivistController',['$scope', '$http', function ($sco
     $http.post('/events', eventData);
   };
 
-  this.sendEvent = function(){
+  this.createEvent = function(){
+
     return {
       title: $scope.title,
       description: $scope.description,
       time: $scope.time,
       location: $scope.location
     };
+  };
+
+  this.sendEvent = function() {
+    this.postEvent(this.createEvent());
   };
 
 
