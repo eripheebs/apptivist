@@ -13,12 +13,17 @@ router.post('/events', function(req, res) {
 
     var results = [];
     console.log(req);
-    var data = {title: req.body.title, description: req.body.description};
+    var data = {title: req.body.title,
+      description: req.body.description,
+      time: req.body.time,
+      location: req.body.location
+    };
     console.log(data);
 
     pg.connect(connectionString, function(err, client, done) {
 
-        client.query("INSERT INTO events(title, description) values($1, $2)", [data.title, data.description]);
+        client.query("INSERT INTO events(title, description, time, location) values($1, $2, $3, $4)",
+        [data.title, data.description, data.time, data.location]);
 
         var query = client.query("SELECT * FROM events ORDER BY id ASC");
 
