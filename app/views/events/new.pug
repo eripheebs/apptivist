@@ -7,24 +7,23 @@ html(lang ="en" ng-app="apptivistApp")
     script(src='../js/controllers/apptivistController.js')
     title apptivistApp
   body(ng-controller="apptivistController as ctrl")
-
-body
-  form(name="NewEvent", method="post", action="/events")
-    div.input
-      span.label Title
-      input(type="text", name="title", id="new-event-title"
-    )
-    div.input
-      span.label Description
-      input(type="text", name="description", id="new-event-description"
-    )
-    div.input
-      span.label Time
-      input(type="text", name="time", id="new-event-time"
-    )
-    div.input
-      span.label Location
-      input(type="text", name="location", id="new-event-location"
-    )
-    div.actions
-      input(type="submit", value="submit", id="submit")
+    p scope is {{ctrl}}
+    form(name="NewEvent", method="post", ng-submit="ctrl.createEvent()")
+      div.input
+        span.label Title
+        input(type="text", name="title", id="new-event-title", ng-model="title"
+      )
+      div.input
+        span.label Description
+        input(type="text", name="description", id="new-event-description", ng-model="description"
+      )
+      div.input
+        span.label Time
+        input(type="text", name="time", id="new-event-time", ng-model="time"
+      )
+      div.input
+        span.label Location
+        input(type="text", name="location", id="new-event-location", ng-model="location"
+      )
+      div.actions
+        input(type="submit", value="submit", id="submit")

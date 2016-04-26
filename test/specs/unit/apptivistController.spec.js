@@ -7,7 +7,6 @@ describe('apptivistController', function() {
     description:"sampleDescription",
     time:"sampleTime",
     location:"sampleLocation"};
-  var $scope = {};
 
   beforeEach(inject(function($controller, $httpBackend){
     ctrl = $controller('apptivistController');
@@ -16,7 +15,7 @@ describe('apptivistController', function() {
 
   it('posts an event to the server', function(){
     httpBackend.expectPOST("/events",  eventData).respond(201);
-    ctrl.postEvent();
+    ctrl.postEvent(eventData);
     httpBackend.flush();
   });
 
