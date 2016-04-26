@@ -1,10 +1,14 @@
-describe('apptivistController', function(){
+describe('apptivistApp', function(){
 
-  describe('homepage works', function(){
-    it('has a title', function(){
-      browser.get('/');
-      expect(browser.getTitle()).toEqual('apptivistApp');
-    });
+  it('has a form', function(){
+    browser.get('/events/new.html');
+    expect(element(by.id('#new-event-title')).isDisplayed()).toBeTruthy();
   });
 
 });
+
+// $('#new-event-title').sendKeys('test event');
+// $('#new-event-description').sendKeys('test event description');
+// $('#new-event-time').sendKeys('test event time');
+// $('#new-event-location').sendKeys('test event location');
+// expect(browser.getTitle()).toEqual('apptivistApp');
