@@ -79,3 +79,30 @@ I would like user restrictions to be put in place.
 ## Day planner
 * 2 standups (morning and after lunch)
 * Front and backend
+
+## Setup
+```
+npm install
+bower install
+```
+Move bower components into app directory (change later)
+
+Create databases
+```
+apptivist_development
+apptivist_test
+```
+Connect databases
+```
+node app/models/database.js
+```
+To run tests, run these commands in separate terminal tabs
+*check where bower should go. we changed karma config to look for bower in app*
+```
+node app/server.js
+webdriver-manager start
+```
+```
+karma start test/karma.conf.js
+protractor test/protractor.conf.js
+```
