@@ -18,7 +18,7 @@ describe('EventService', function(){
   describe('#getEvents', function(){
 
     it('fetches a list of events', function(){
-      httpBackend.expectGET("/events").respond(dummyEvents);
+      httpBackend.expectGET("/api/events").respond(dummyEvents);
       EventService.getEvents().then(function(returnValue) {
         expect(returnValue.title).toEqual(dummyEvents.title);
       });
