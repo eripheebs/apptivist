@@ -9,17 +9,17 @@ apptivistApp.controller('apptivistController',['$scope', '$http', 'ApptivistFact
    location: "testLocation"
  }];
 
+ self.sendEvent = function() {
+   this.postEvent(this.createEvent());
+ };
+
   self.postEvent = function(eventData){
-    $http.post('/events', eventData, { 'Content-Type': 'application/json;charset=UTF-8' });
+    $http.post('/api/events', eventData, { 'Content-Type': 'application/json;charset=UTF-8' });
   };
 
   self.createEvent = function(){
     var newEvent = new ApptivistFactory($scope.title, $scope.description, $scope.time, $scope.location);
     return newEvent;
-  };
-
-  self.sendEvent = function() {
-    this.postEvent(this.createEvent());
   };
 
   self.updateEvents = function() {
