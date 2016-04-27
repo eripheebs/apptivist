@@ -12,7 +12,7 @@ var events = require('./server/routes/events');
 var app = express();
 
 app.set('views', path.join(__dirname, 'client/views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 app.set('models', path.join(__dirname, 'server/models'));
 
 app.use(logger('dev'));

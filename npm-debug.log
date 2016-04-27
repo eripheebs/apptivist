@@ -1,16 +1,16 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/local/Cellar/node/5.9.0/bin/node',
+1 verbose cli [ '/usr/local/Cellar/node/5.10.1/bin/node',
 1 verbose cli   '/usr/local/bin/npm',
 1 verbose cli   'start' ]
-2 info using npm@3.7.3
-3 info using node@v5.9.0
+2 info using npm@3.8.3
+3 info using node@v5.10.1
 4 verbose run-script [ 'prestart', 'start', 'poststart' ]
 5 info lifecycle apptivist@0.0.0~prestart: apptivist@0.0.0
 6 silly lifecycle apptivist@0.0.0~prestart: no script for prestart, continuing
 7 info lifecycle apptivist@0.0.0~start: apptivist@0.0.0
 8 verbose lifecycle apptivist@0.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle apptivist@0.0.0~start: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/kylebuttner/Desktop/Makers/week9/apptivist/node_modules/.bin:/usr/local/Cellar/node/5.9.0/bin:/Users/kylebuttner/.rvm/gems/ruby-2.3.0/bin:/Users/kylebuttner/.rvm/gems/ruby-2.3.0@global/bin:/Users/kylebuttner/.rvm/rubies/ruby-2.3.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/kylebuttner/.rvm/bin:/Users/kylebuttner/.rvm/bin
-10 verbose lifecycle apptivist@0.0.0~start: CWD: /Users/kylebuttner/Desktop/Makers/week9/apptivist
+9 verbose lifecycle apptivist@0.0.0~start: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/p_donati/Projects/Makers_academy/Week_9/apptivist/node_modules/.bin:/usr/local/Cellar/node/5.10.1/bin:/Users/p_donati/.rvm/gems/ruby-2.3.0/bin:/Users/p_donati/.rvm/gems/ruby-2.3.0@global/bin:/Users/p_donati/.rvm/rubies/ruby-2.3.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/p_donati/.rvm/bin:/Users/p_donati/.rvm/bin
+10 verbose lifecycle apptivist@0.0.0~start: CWD: /Users/p_donati/Projects/Makers_academy/Week_9/apptivist
 11 silly lifecycle apptivist@0.0.0~start: Args: [ '-c', 'node ./bin/www' ]
 12 silly lifecycle apptivist@0.0.0~start: Returned: code: 1  signal: null
 13 info lifecycle apptivist@0.0.0~start: Failed to exec start script
@@ -25,11 +25,11 @@
 14 verbose stack     at maybeClose (internal/child_process.js:850:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:215:5)
 15 verbose pkgid apptivist@0.0.0
-16 verbose cwd /Users/kylebuttner/Desktop/Makers/week9/apptivist
-17 error Darwin 14.3.0
-18 error argv "/usr/local/Cellar/node/5.9.0/bin/node" "/usr/local/bin/npm" "start"
-19 error node v5.9.0
-20 error npm  v3.7.3
+16 verbose cwd /Users/p_donati/Projects/Makers_academy/Week_9/apptivist
+17 error Darwin 14.0.0
+18 error argv "/usr/local/Cellar/node/5.10.1/bin/node" "/usr/local/bin/npm" "start"
+19 error node v5.10.1
+20 error npm  v3.8.3
 21 error code ELIFECYCLE
 22 error apptivist@0.0.0 start: `node ./bin/www`
 22 error Exit status 1
