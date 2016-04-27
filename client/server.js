@@ -1,18 +1,37 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 var app = express();
 var port = process.env.PORT || 3000;
 var server = require('http').createServer(app);
 
 app.set("views", "app/views");
 app.set("view engine", "pug");
+app.use(bodyParser.json());
 
-app.use(express.static("bower_components/angular"));
-app.use(express.static("bower_components/angular-resource"));
+
+
 app.use(express.static(__dirname));
+
 
 app.get('/', function(request, response){
   response.render('index');
 });
+
+app.get('/users', function(request, response){
+  response.render('users/new');
+});
+
+app.post('/events', function(request, response){
+  console.log("POST CALLED WITH", request.body);
+  response.sendStatus(200);
+});
+
+app.get('/events/new', function(request, response){
+  response.render('events/new');
+});
+
+
+
 
 server.listen(3000, function(){
   console.log("Server listening on port 3000");
