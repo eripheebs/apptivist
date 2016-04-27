@@ -3,11 +3,13 @@ var router = express.Router();
 var app = express();
 var models  = require('../models');
 
-// router.get('/', function(req, res) {
-//   res.send('Hello World!');
-// });
+router.get('/events', function(req, res) {
+  models.Event.findAll({}).then(function(dump){
+    res.json(dump);
+  });
+});
 
-router.post('/', function(req, res) {
+router.post('/events', function(req, res) {
   models.Event.create({
     title: req.body.title,
     description: req.body.description,
@@ -18,7 +20,7 @@ router.post('/', function(req, res) {
   });
 });
 
-router.get('/:event_id', function(req, res) {
+router.get('/events/:event_id', function(req, res) {
   models.Event.find({
     where: {
       id: req.params.event_id
@@ -28,7 +30,7 @@ router.get('/:event_id', function(req, res) {
   });
 });
 
-router.put('/:event_id', function(req, res) {
+router.put('/events/:event_id', function(req, res) {
   models.Event.find({
     where: {
       id: req.params.id
@@ -49,7 +51,7 @@ router.put('/:event_id', function(req, res) {
   });
 });
 
-router.delete('/:event_id', function(req, res) {
+router.delete('/events/:event_id', function(req, res) {
   models.Event.destroy({
     where: {
       id: req.params.event_id
