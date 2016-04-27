@@ -5,17 +5,15 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
-var events = require('./routes/events');
-
-var config = require('./config');
+var routes = require('./server/routes/index');
+var users = require('./server/routes/users');
+var events = require('./server/routes/events');
 
 var app = express();
 
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'client/views'));
 app.set('view engine', 'jade');
-app.set('models', path.join(__dirname, 'models'));
+app.set('models', path.join(__dirname, 'server/models'));
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
