@@ -15,6 +15,7 @@ var app = express();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+app.set('models', path.join(__dirname, 'models'));
 
 app.use(logger('dev'));
 app.use(bodyParser.json());

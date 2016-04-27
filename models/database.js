@@ -11,6 +11,13 @@ var sequelize = new Sequelize('postgres://localhost/apptivist_development');
 
 var Event = sequelize.import(__dirname + '/Event');
 
-Event.sync({force: true});
+Event.sync({force: true}).then(function () {
+  return Event.create({
+    title: "gi",
+    description: "i",
+    time: "m",
+    location: "p"
+  });
+});
 
 module.exports.sequelize = sequelize;
