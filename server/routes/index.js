@@ -1,5 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var connectionString = process.env.DATABASE_URL || 'postgres://localhost/apptivist_development';
+var app = express();
+
+router.get('/', function (req, res) {
+  res.render('index');
+});
 
 module.exports = router;
