@@ -8,7 +8,9 @@ block pageContent
         p {{ events.description }}
         p {{ events.time }}
         p {{ events.location }}
-    form(name="NewEvent", ng-submit="ctrl.sendEvent()")
+    button(id="showNewEventForm" ng-click="showNewEvent=!showNewEvent")
+      p Click to add an event
+    form(name="NewEvent", ng-submit="controller.sendEvent()", ng-show="showNewEvent")
       div.input
         span.label Title
         input(type="text", name="title", id="new-event-title", ng-model="title"

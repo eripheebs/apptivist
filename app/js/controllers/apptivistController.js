@@ -22,7 +22,6 @@ apptivistApp.controller('apptivistController',['$scope', '$http', function ($sco
   };
 
   self.sendEvent = function() {
-    console.log("ive been called");
     this.postEvent(this.createEvent());
   };
 

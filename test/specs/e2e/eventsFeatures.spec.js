@@ -16,16 +16,25 @@ describe('apptivistApp', function(){
 
   describe('Add an event', function() {
 
-    it('has an event form', function(){
+    it('add event form is hidden by default', function(){
       browser.get(baseUrl);
-      expect(element(by.id('new-event-title')).isDisplayed()).toBeTruthy();
-      expect(element(by.id('new-event-description')).isDisplayed()).toBeTruthy();
-      expect(element(by.id('new-event-time')).isDisplayed()).toBeTruthy();
-      expect(element(by.id('new-event-location')).isDisplayed()).toBeTruthy();
-      expect(element(by.id('submit')).isDisplayed()).toBeTruthy();
+      expect(element(by.name('NewEvent')).isDisplayed()).toEqual(false);
+    });
+
+    it('clicking on the add button shows the form', function(){
+      browser.get(baseUrl);
+      $('#showNewEventForm').click();
+      expect(element(by.id('new-event-title')).isDisplayed()).toBe(true);
+      expect(element(by.id('new-event-description')).isDisplayed()).toBe(true);
+      expect(element(by.id('new-event-time')).isDisplayed()).toBe(true);
+      expect(element(by.id('new-event-location')).isDisplayed()).toBe(true);
+      expect(element(by.id('submit')).isDisplayed()).toBe(true);
     });
 
     it('clicking the submit button does not redirect the user', function(){
+      browser.get(baseUrl);
+      $('#showNewEventForm').click();
+      element(by.id('new-event-title')).sendKeys("Test Title of an Event");
       $('#submit').click();
       expect(browser.getCurrentUrl()).toEqual(baseUrl);
     });
@@ -33,3 +42,5 @@ describe('apptivistApp', function(){
   });
 
 });
+
+//
