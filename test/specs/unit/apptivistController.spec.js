@@ -18,12 +18,6 @@ describe('apptivistController', function() {
     location: "testLocation"
   }];
 
-  // var eventData = {
-  //   title: "sampleEvent",
-  //   description:"sampleDescription",
-  //   time:"sampleTime",
-  //   location:"sampleLocation"};
-
   describe('initialize', function() {
 
     it('with an empty arrays of events', function(){
@@ -37,7 +31,7 @@ describe('apptivistController', function() {
     it('should update the events from the page', function(){
       testController.updateEvents();
       httpBackend.flush();
-      expect(testController.events).toEqual(dummyEvents);
+      expect(testController.events[0].title).toEqual(dummyEvents[0].title);
     });
 
   });
@@ -51,7 +45,7 @@ describe('apptivistController', function() {
     });
 
     it('updates the current list', function(){
-      
+
     });
 
   });

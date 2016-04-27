@@ -10,18 +10,19 @@ describe('ApptivistService', function(){
     location: "testLocation"
   }];
 
-  beforeEach(inject(function(_AppttivistService_, $httpBackend){
-    ApptivistService = _AppttivistService_;
+  beforeEach(inject(function(_ApptivistService_, $httpBackend){
+    ApptivistService = _ApptivistService_;
     httpBackend = $httpBackend;
   }));
 
-  describe('#pizza', function(){
+  describe('#getEvents', function(){
 
     it('fetches a list of events', function(){
-
       httpBackend.expectGET("/events").respond(dummyEvents);
-
-      var response = 
+      ApptivistService.getEvents().then(function(returnValue) {
+        expect(returnValue.title).toEqual(dummyEvents.title);
+      });
+      httpBackend.flush();
     });
   });
 });

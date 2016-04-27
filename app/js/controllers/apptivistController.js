@@ -1,7 +1,7 @@
-apptivistApp.controller('apptivistController',['$scope', '$http', 'ApptivistFactory', function ($scope, $http, ApptivistFactory) {
+apptivistApp.controller('apptivistController',['$scope', '$http', 'ApptivistFactory', 'ApptivistService', function ($scope, $http, ApptivistFactory, ApptivistService) {
 
   var self = this;
-  
+
   self.events = [{
    title: "testTitle",
    description: "testDescription",
@@ -23,9 +23,10 @@ apptivistApp.controller('apptivistController',['$scope', '$http', 'ApptivistFact
   };
 
   self.updateEvents = function() {
-    $http.get('/events')
+    ApptivistService.getEvents()
       .then(function(returnValue) {
-        self.events = returnValue.data;
+        self.events = returnValue;
+        console.log(self.event);
       });
   };
 
