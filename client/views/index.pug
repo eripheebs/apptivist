@@ -1,7 +1,7 @@
 extends ./layout.pug
 
 block pageContent
-  div(ng-controller="apptivistController as controller")
+  div(ng-controller="eventController as controller")
     ul(id="event-list", ng-repeat="events in controller.events track by $index")
       li
         p {{ events.title }}

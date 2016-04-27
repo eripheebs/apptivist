@@ -1,4 +1,4 @@
-describe('apptivistController', function() {
+describe('eventController', function() {
 
   beforeEach(module('apptivistApp'));
 
@@ -6,7 +6,7 @@ describe('apptivistController', function() {
 
   beforeEach(inject(function($controller, $httpBackend, $rootScope){
     scope = $rootScope.$new();
-    testController = $controller('apptivistController', {$scope:scope});
+    testController = $controller('eventController', {$scope:scope});
     httpBackend = $httpBackend;
     httpBackend.whenGET('/events').respond(dummyEvents);
   }));
