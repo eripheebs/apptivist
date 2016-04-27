@@ -1,6 +1,7 @@
-apptivistApp.controller('apptivistController',['$scope', '$http', function ($scope, $http) {
+apptivistApp.controller('apptivistController',['$scope', '$http', 'ApptivistFactory', function ($scope, $http, ApptivistFactory) {
 
   var self = this;
+  
   self.events = [{
    title: "testTitle",
    description: "testDescription",
@@ -13,12 +14,8 @@ apptivistApp.controller('apptivistController',['$scope', '$http', function ($sco
   };
 
   self.createEvent = function(){
-    return {
-      title: $scope.title,
-      description: $scope.description,
-      time: $scope.time,
-      location: $scope.location
-    };
+    var newEvent = new ApptivistFactory($scope.title, $scope.description, $scope.time, $scope.location);
+    return newEvent;
   };
 
   self.sendEvent = function() {
