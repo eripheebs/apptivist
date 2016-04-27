@@ -1,14 +1,14 @@
 var express = require('express');
 var router = express.Router();
 var pg = require('pg');
-var connectionString = process.env.DATABASE_URL || 'postgres://localhost/apptivist_development';
+// var connectionString = process.env.DATABASE_URL || 'postgres://localhost/apptivist_development';
 var app = express();
 var models  = require('../models');
 
 router.get('/', function(req, res) {
-  models.Event.findAll({}).then(function(Events) {
-    res.json(Events);
-  });
+  models.Event.findAll({}).then(function(dump){
+    res.json(dump);
+  })
 });
 
 router.post('/', function(req, res) {
