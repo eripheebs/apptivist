@@ -3,12 +3,11 @@ var router = express.Router();
 var pg = require('pg');
 var connectionString = process.env.DATABASE_URL || 'postgres://localhost/apptivist_development';
 var app = express();
-var Event = sequelize.import(__dirname + '/Event');
+var models  = require('../models');
 
 router.get('/', function(req, res) {
-  console.log(Event);
-  return Event.findall().then(function(projecs){
-    console.log(projects);
+  models.Event.findAll({}).then(function(Events) {
+    res.json(Events);
   });
 });
 

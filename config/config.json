@@ -1,0 +1,11 @@
+{
+  "development": {
+    "dialect": "postgres",
+    "storage": "postgres://localhost/apptivist_development"
+  },
+  "test": {
+    "database": "apptivist_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
