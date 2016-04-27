@@ -1,10 +1,18 @@
 apptivistApp.controller('apptivistController',['$scope', '$http', function ($scope, $http) {
 
-  this.postEvent = function(eventData){
+  var self = this;
+  self.events = [{
+   title: "testTitle",
+   description: "testDescription",
+   time: "testTime",
+   location: "testLocation"
+ }];
+
+  self.postEvent = function(eventData){
     $http.post('/events', eventData, { 'Content-Type': 'application/json;charset=UTF-8' });
   };
 
-  this.createEvent = function(){
+  self.createEvent = function(){
     return {
       title: $scope.title,
       description: $scope.description,
@@ -13,8 +21,16 @@ apptivistApp.controller('apptivistController',['$scope', '$http', function ($sco
     };
   };
 
-  this.sendEvent = function() {
+  self.sendEvent = function() {
+    console.log("ive been called");
     this.postEvent(this.createEvent());
+  };
+
+  self.updateEvents = function() {
+    $http.get('/events')
+      .then(function(returnValue) {
+        self.events = returnValue.data;
+      });
   };
 
 }]);
