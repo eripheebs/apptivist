@@ -1,4 +1,5 @@
 apptivistApp.factory('ApptivistFactory', function(){
+  
   var event = function(title, description, time, location) {
     this.title = title;
     this.description = description;
