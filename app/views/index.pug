@@ -1,8 +1,10 @@
 extends ./layout.pug
 
 block pageContent
-  ul(id="event-list")
-    li "test event"
-    li "test event 2"
-
-  
+  div(ng-controller="apptivistController as controller")
+    ul(id="event-list", ng-repeat="events in controller.events track by $index")
+      li
+        p {{ events.title }}
+        p {{ events.description }}
+        p {{ events.time }}
+        p {{ events.location }}

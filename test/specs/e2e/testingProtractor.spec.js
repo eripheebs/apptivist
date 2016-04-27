@@ -8,8 +8,7 @@ describe('apptivistController', function(){
 
     it('displays a list of events', function(){
       browser.get('/');
-
-      expect($$('#event-list li').first().getText()).toMatch("test event");
+      expect($$('#event-list li').first().getText()).toMatch("testTitle");
     });
   });
 

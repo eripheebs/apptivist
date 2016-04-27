@@ -2,7 +2,12 @@ apptivistApp.controller('apptivistController',['$http', function ($http) {
 
   self = this;
 
-  self.events = [];
+  self.events = [{
+   title: "testTitle",
+   description: "testDescription",
+   time: "testTime",
+   location: "testLocation"
+ }];
 
   self.updateEvents = function() {
     $http.get('/events')
