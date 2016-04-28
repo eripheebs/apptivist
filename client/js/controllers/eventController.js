@@ -4,15 +4,15 @@ apptivistApp.controller('eventController',['$http', 'EventFactory', 'EventServic
   self.events = [];
 
   self.updateEvents = function() {
-    EventService.getEvents().then(function(events){
-      self.events = events;
-    });
+    EventService.getEvents()
+      .then(function(events){
+        self.events = events;
+      });
   };
 
-  self.updateEvents();
-
   self.sendEvent = function(title, description, time, location) {
-    EventService.postEvent(self.createEventWithId(title, description, time, location));
+    EventService.postEvent(self.createEventWithId(title, description, time, location))
+      .then(self.updateEvents());
   };
 
   self.createEventWithId = function(title, description, time, location, id) {
@@ -20,12 +20,15 @@ apptivistApp.controller('eventController',['$http', 'EventFactory', 'EventServic
   };
 
   self.editEvent = function(title, description, time, location, id) {
-    var eventData = {title: title, description: description, time: time, location: location, id: id};
-    EventService.editEvent(self.createEventWithId(title, description, time, location, id));
+    EventService.editEvent(self.createEventWithId(title, description, time, location, id))
+      .then(self.updateEvents());
   };
 
   self.deleteEvent = function(id) {
-    EventService.deleteEvent(id);
+    EventService.deleteEvent(id)
+      .then(self.updateEvents());
   };
+
+  self.updateEvents();
 
 }]);

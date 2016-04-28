@@ -2,33 +2,35 @@ extends ./layout.pug
 
 block pageContent
   div(ng-controller="eventController as controller")
-    ul(id="event-list", ng-repeat="events in controller.events track by $index")
-      li
-        p {{ events.title }}
-        p {{ events.description }}
-        p {{ events.time }}
-        p {{ events.location }}
-        button(id="showEditEventForm" ng-click="showEditEvent=!showEditEvent") Edit or Delete Event
-        #editEvent(ng-controller="eventController as ctrl", ng-show="showEditEvent")
-          span.label Title
-          input#edit-event-title(ng-model='titleText', placeholder='e.g. Junior Doctor Protest')
-          span.label Description
-          input#edit-event-description(ng-model='descriptionText')
-          span.label Time
-          input#edit-event-time(ng-model='timeText')
-          span.label Location
-          input#edit-event-location(ng-model='locationText')
-          button#submit(ng-click='ctrl.editEvent(titleText, descriptionText, timeText, locationText, events.id)') Confirm Changes
-          button#delete(ng-click='ctrl.deleteEvent(events.id)') Delete
+
     button(id="showNewEventForm" ng-click="showNewEvent=!showNewEvent")
       p Click to add an event
-    #createEvent(ng-controller="eventController as ctrl", ng-show="showNewEvent")
+    #createEvent(ng-show="showNewEvent")
       span.label Title
-      input#new-event-title(ng-model='titleText', placeholder='e.g. Junior Doctor Protest')
+      input#new-event-title(ng-model='titleText')
       span.label Description
       input#new-event-description(ng-model='descriptionText')
       span.label Time
       input#new-event-time(ng-model='timeText')
       span.label Location
       input#new-event-location(ng-model='locationText')
-      button#submit(ng-click='ctrl.sendEvent(titleText, descriptionText, timeText, locationText); ctrl.updateEvents()') Create Event
+      button#submit(ng-click='controller.sendEvent(titleText, descriptionText, timeText, locationText)') Create Event
+
+    ul(id="event-list", ng-repeat="event in controller.events track by $index")
+      li
+        p {{ event.title }}
+        p {{ event.description }}
+        p {{ event.time }}
+        p {{ event.location }}
+        button(id="showEditEventForm" ng-click="showEditEvent=!showEditEvent") Edit or Delete Event
+        #editEvent(ng-show="showEditEvent")
+          span.label Title
+          input#edit-event-title(ng-model='titleText')
+          span.label Description
+          input#edit-event-description(ng-model='descriptionText')
+          span.label Time
+          input#edit-event-time(ng-model='timeText')
+          span.label Location
+          input#edit-event-location(ng-model='locationText')
+          button#submit(ng-click='controller.editEvent(titleText, descriptionText, timeText, locationText, event.id)') Confirm Changes
+          button#delete(ng-click='controller.deleteEvent(event.id)') Delete
