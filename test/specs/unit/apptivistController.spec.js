@@ -33,6 +33,10 @@ describe('eventController', function() {
       expect(testController.events[0].title).toEqual(dummyEvents[0].title);
     });
 
+    it('updates the information of a specific event', function() {
+      
+    });
+
   });
 
   describe('#postEvent', function(){

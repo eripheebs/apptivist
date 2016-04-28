@@ -6,6 +6,7 @@ apptivistApp.controller('eventController',['$http', 'EventFactory', 'EventServic
   self.updateEvents = function() {
     EventService.getEvents().then(function(events){
       self.events = events;
+      console.log(events);
     });
   };
 
