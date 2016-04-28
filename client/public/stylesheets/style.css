@@ -1,8 +1,146 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0px auto;
 }
 
 a {
   color: #00B7FF;
+}
+
+div{
+  margin: 0px auto;
+}
+
+hr{
+  max-width: 600px;
+  border: none;
+  border-top: medium double #333;
+}
+
+h1{
+  text-align: center;
+  font-family: Amatic SC;
+}
+
+#eventsBox{
+  max-width:600px;
+  height: 60vh;
+  overflow: auto;
+  position: relative;
+  /*background-color: #f0eceb;*/
+}
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  background-color: #729f98;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #f0f0f5;
+}
+
+::-webkit-scrollbar-button {
+  background-color: #7c2929;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.event {
+  box-shadow: rgba(0, 0, 0, 0.0784314) 0px 1px 2px 0px;
+  color: rgb(61, 62, 68);
+  height: 150px;
+  min-height: auto;
+  min-width: auto;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box;
+  border: 1px solid rgb(233, 233, 236);
+  border-radius: 2px 2px 2px 2px;
+  outline: rgb(61, 62, 68) none 0px;
+  transition: box-shadow 0.3s ease-in-out 0s;
+  max-width: 500px;
+  margin: 27.7969px auto;
+  transition: margin 4s;
+}
+.event:hover{
+  max-width: 650px;
+}
+
+.details{
+  margin: 20px;
+}
+
+.details span{
+  display: block;
+  font-family: Amatic SC;
+  font-size: 17px;
+}
+
+#newEvent{
+  margin: 0px auto;
+  text-align: center;
+}
+
+button{
+  padding: 17px;
+  color: #283018;
+  background-color: #f0eceb;
+  border: none;
+  border-radius: 10%;
+}
+
+button:hover,
+#submitSearch.hover {
+  background-color: #c9c9c9;
+}
+
+button:active,
+button.active {
+  background-color: #27496d;
+  text-shadow: -1px 1px #193047;
+}
+
+#createEvent {
+  position:fixed;
+   top:0;
+   right:0;
+  box-shadow: rgba(0, 0, 0, 0.0784314) 3px 3px 2px 3px;
+  color: rgb(61, 62, 68);
+  background-color: #729f98;
+  width: 30%;
+  min-height: auto;
+  min-width: auto;
+}
+
+#showNewEventForm{
+  position:fixed;
+  top:10%;
+  right:10%;
+}
+
+span.label{
+  display: block;
+}
+
+button#submit{
+  display: block;
+  margin: 10px auto;
+  text-align: center;
+}
+
+input{
+  padding: 15px;
+  border: solid 3px #283018;
+  transition: border 0.3s;
+}
+
+#input:focus,
+#input.focus {
+  border: solid 5px #969696;
 }
