@@ -30,4 +30,4 @@ block pageContent
       input#new-event-time(ng-model='timeText')
       span.label Location
       input#new-event-location(ng-model='locationText')
-      button#submit(ng-click='ctrl.sendEvent(titleText, descriptionText, timeText, locationText)') Create Event
+      button#submit(ng-click='ctrl.sendEvent(titleText, descriptionText, timeText, locationText); ctrl.updateEvents()') Create Event

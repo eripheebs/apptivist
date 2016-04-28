@@ -14,12 +14,15 @@ apptivistApp.service('EventService', ['$http', 'EventFactory', function($http, E
   };
 
   this.postEvent = function(eventData) {
+    console.log(eventData);
+    console.log('/api/events', eventData);
     return $http.post('/api/events', eventData, { 'Content-Type': 'application/json;charset=UTF-8' });
   };
 
-  this.editEvent = function(title, description, time, locaiton, id) {
-    console.log(id);
-    return $http.put('/api/events/'+ id, eventData, { 'Content-Type': 'application/json;charset=UTF-8' });
+  this.editEvent = function(eventData) {
+    console.log(eventData);
+    console.log('/api/events/'+ eventData.id);
+    return $http.put('/api/events/'+ eventData.id, eventData, { 'Content-Type': 'application/json;charset=UTF-8' });
   };
 
 }]);
