@@ -3,6 +3,7 @@ extends ./layout.pug
 block pageContent
   h1 Apptivist
   div(ng-controller="eventController as controller")
+
     #eventsBox
       ul(id="event-list", ng-repeat="events in controller.events track by $index")
         li
@@ -12,6 +13,7 @@ block pageContent
               span.description Description: {{ events.description }}
               span.time Time: {{ events.time }}
               span.location Location: {{ events.location }}
+    
     #newEvent
       button(id="showNewEventForm" ng-click="showNewEvent=!showNewEvent" ng-show="!showNewEvent")
         p Click to add an event
