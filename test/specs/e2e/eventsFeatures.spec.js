@@ -41,6 +41,15 @@ describe('apptivistApp', function(){
 
   });
 
+  describe('Events views', function() {
+
+    it('list is available from /events', function(){
+      browser.get(baseUrl + 'events');
+      expect($$('#event-list li').first().getText()).toMatch("testTitle");
+    });
+
+  });
+
 });
 
 //
