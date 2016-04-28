@@ -13,4 +13,8 @@ apptivistApp.service('EventService', ['$http', 'EventFactory', function($http, E
     return events;
   };
 
+  this.postEvent = function(eventData) {
+    return $http.post('/api/events', eventData, { 'Content-Type': 'application/json;charset=UTF-8' });
+  };
+
 }]);
