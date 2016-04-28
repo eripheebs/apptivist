@@ -2,15 +2,19 @@ apptivistApp.controller('apptivistController',['$scope', '$http', 'ApptivistFact
 
   var self = this;
 
-  self.events = [{
-   title: "testTitle",
-   description: "testDescription",
-   time: "testTime",
-   location: "testLocation"
- }];
+  self.events = [];
+
+  self.updateEvents = function() {
+    ApptivistService.getEvents()
+      .then(function(returnValue) {
+        self.events = returnValue;
+        console.log(self.events);
+      });
+  };
 
   self.postEvent = function(eventData){
-    $http.post('/events', eventData, { 'Content-Type': 'application/json;charset=UTF-8' });
+    $http.post('/events', eventData, { 'Content-Type': 'application/json;charset=UTF-8' })
+      .then(self.updateEvents());
   };
 
   self.createEvent = function(){
@@ -22,12 +26,7 @@ apptivistApp.controller('apptivistController',['$scope', '$http', 'ApptivistFact
     this.postEvent(this.createEvent());
   };
 
-  self.updateEvents = function() {
-    ApptivistService.getEvents()
-      .then(function(returnValue) {
-        self.events = returnValue;
-        console.log(self.event);
-      });
-  };
+  self.updateEvents();
+
 
 }]);
