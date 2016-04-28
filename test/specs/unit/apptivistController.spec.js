@@ -1,14 +1,13 @@
-describe('apptivistController', function() {
+describe('eventController', function() {
 
   beforeEach(module('apptivistApp'));
 
-  var testController, scope;
+  var testController;
 
-  beforeEach(inject(function($controller, $httpBackend, $rootScope){
-    scope = $rootScope.$new();
-    testController = $controller('apptivistController', {$scope:scope});
+  beforeEach(inject(function($controller, $httpBackend){
+    testController = $controller('eventController');
     httpBackend = $httpBackend;
-    httpBackend.whenGET('/events').respond(dummyEvents);
+    httpBackend.whenGET('/api/events').respond(dummyEvents);
   }));
 
   var dummyEvents = [{
@@ -20,8 +19,8 @@ describe('apptivistController', function() {
 
   describe('initialize', function() {
 
-    it('with an empty arrays of events', function(){
-      expect(testController.events).toEqual(dummyEvents);
+    it('with an empty array', function(){
+      expect(testController.events).toEqual([]);
     });
 
   });
@@ -39,7 +38,7 @@ describe('apptivistController', function() {
   describe('#postEvent', function(){
 
     it('posts an event to the server', function(){
-      httpBackend.expectPOST("/events",  dummyEvents).respond(201);
+      httpBackend.expectPOST("/api/events",  dummyEvents).respond(201);
       testController.postEvent(dummyEvents);
       httpBackend.flush();
     });

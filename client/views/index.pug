@@ -1,7 +1,7 @@
 extends ./layout.pug
 
 block pageContent
-  div(ng-controller="apptivistController as controller")
+  div(ng-controller="eventController as controller")
     ul(id="event-list", ng-repeat="events in controller.events track by $index")
       li
         p {{ events.title }}
@@ -10,22 +10,13 @@ block pageContent
         p {{ events.location }}
     button(id="showNewEventForm" ng-click="showNewEvent=!showNewEvent")
       p Click to add an event
-    form(name="NewEvent", ng-submit="controller.sendEvent()", ng-show="showNewEvent")
-      div.input
-        span.label Title
-        input(type="text", name="title", id="new-event-title", ng-model="title"
-      )
-      div.input
-        span.label Description
-        input(type="text", name="description", id="new-event-description", ng-model="description"
-      )
-      div.input
-        span.label Time
-        input(type="text", name="time", id="new-event-time", ng-model="time"
-      )
-      div.input
-        span.label Location
-        input(type="text", name="location", id="new-event-location", ng-model="location"
-      )
-      div.actions
-        input(type="submit", value="submit", id="submit")
+    #createEvent(ng-controller="eventController as ctrl", ng-show="showNewEvent")
+      span.label Title
+      input#new-event-title(ng-model='titleText', placeholder='e.g. Junior Doctor Protest')
+      span.label Description
+      input#new-event-description(ng-model='descriptionText')
+      span.label Time
+      input#new-event-time(ng-model='timeText')
+      span.label Location
+      input#new-event-location(ng-model='locationText')
+      button#submit(ng-click='ctrl.sendEvent(titleText, descriptionText, timeText, locationText)') Create Event

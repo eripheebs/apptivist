@@ -1,7 +1,7 @@
-describe('ApptivistService', function(){
+describe('EventService', function(){
   beforeEach(module('apptivistApp'));
 
-  var ApptivistService, httpBackend;
+  var EventService, httpBackend;
 
   var dummyEvents = [{
     title: "testTitle",
@@ -10,16 +10,16 @@ describe('ApptivistService', function(){
     location: "testLocation"
   }];
 
-  beforeEach(inject(function(_ApptivistService_, $httpBackend){
-    ApptivistService = _ApptivistService_;
+  beforeEach(inject(function(_EventService_, $httpBackend){
+    EventService = _EventService_;
     httpBackend = $httpBackend;
   }));
 
   describe('#getEvents', function(){
 
     it('fetches a list of events', function(){
-      httpBackend.expectGET("/events").respond(dummyEvents);
-      ApptivistService.getEvents().then(function(returnValue) {
+      httpBackend.expectGET("/api/events").respond(dummyEvents);
+      EventService.getEvents().then(function(returnValue) {
         expect(returnValue.title).toEqual(dummyEvents.title);
       });
       httpBackend.flush();

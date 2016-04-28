@@ -1,4 +1,4 @@
-describe('ApptivistFactory', function(){
+describe('EventFactory', function(){
   beforeEach(module('apptivistApp'));
 
   var event;
@@ -9,8 +9,8 @@ describe('ApptivistFactory', function(){
     location: "testLocation"
   };
 
-  beforeEach(inject(function(ApptivistFactory){
-    event = new ApptivistFactory(dummyEvent.title,
+  beforeEach(inject(function(EventFactory){
+    event = new EventFactory(dummyEvent.title,
                                  dummyEvent.description,
                                  dummyEvent.time,
                                  dummyEvent.location);
