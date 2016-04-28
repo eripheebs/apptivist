@@ -34,7 +34,7 @@ describe('eventController', function() {
     });
 
     it('updates the information of a specific event', function() {
-      
+      testController.editEvent();
     });
 
   });

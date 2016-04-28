@@ -65,8 +65,18 @@ describe('apptivistApp', function(){
       expect($$('#event-list li').last().getText()).toMatch("testTitle");
     });
 
+  describe('Events views', function() {
+
+    it('list is available from /events', function(){
+      browser.get(baseUrl + 'events');
+      expect($$('#event-list li').first().getText()).toMatch("testTitle");
+    });
+
+    it('single page is available from /events/:event_id', function(){
+      browser.get(baseUrl + 'events/1');
+      expect($$('#event-title').first().getText()).toMatch("testTitle");
+    });
+
   });
 
 });
-
-//
