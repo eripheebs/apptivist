@@ -1,7 +1,7 @@
 apptivistApp.service('ApptivistService', ['$http', 'ApptivistFactory', function($http, ApptivistFactory){
 
   this.getEvents = function() {
-    return $http.get('/events')
+    return $http.get('/api/events')
       .then(this.eventsCreator);
   };
 
