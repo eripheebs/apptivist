@@ -3,9 +3,9 @@ var router = express.Router();
 var app = express();
 var models  = require('../models');
 
-// router.get('/', function(req, res) {
-//   res.send('Hello World!');
-// });
+router.get('/', function(req, res) {
+  res.send('Hello World!');
+});
 
 router.post('/', function(req, res) {
   models.Event.create({
@@ -25,7 +25,7 @@ router.get('/:event_id', function(req, res) {
       id: req.params.event_id
     }
   }).then(function(Event){
-    res.json(Event)
+    res.json(Event);
   });
 });
 
@@ -46,7 +46,7 @@ router.put('/:event_id', function(req, res) {
       });
     }
   }).then(function(Event){
-    res.json(Event)
+    res.json(Event);
   });
 });
 
@@ -57,7 +57,7 @@ router.delete('/:event_id', function(req, res) {
     }
   }).then(function(Event) {
     res.json(Event);
-  })
+  });
 
 });
 

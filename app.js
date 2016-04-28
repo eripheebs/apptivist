@@ -62,7 +62,7 @@ app.use(function(err, req, res, next) {
 
 passport.use(new GithubStrategy({
     clientID: "e2ffec479fa621ef20b4",
-    clientSecret: "secret",
+    clientSecret: process.env.GIT_SECRET,
     callbackURL: "http://localhost:3000/users/auth/callback"
   },
   function(accessToken, refreshToken, profile, done) {
@@ -78,7 +78,7 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(user, done) {
-  console.log("deserializeUser with", user);
+  // console.log("deserializeUser with", user);
   done(null, user);
 });
 
