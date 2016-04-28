@@ -10,12 +10,19 @@ var users = require('./server/routes/users');
 var events = require('./server/routes/events');
 var api = require('./server/routes/api');
 
+var passport = require('passport');
+var GithubStrategy = require('passport-github').Strategy;
+var session = require('express-session');
 
 var app = express();
 
 app.set('views', 'client/views');
 app.set('view engine', 'pug');
 app.set('models', 'server/models');
+
+app.use(session({secret: "pineapple is a weird name for ananas"}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -24,14 +31,10 @@ app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static('client'));
 
-
-
 app.use('/', index);
 app.use('/users', users);
 app.use('/events', events);
 app.use('/api', api);
-
-
 
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -55,6 +58,28 @@ app.use(function(err, req, res, next) {
     message: err.message,
     error: {}
   });
+});
+
+passport.use(new GithubStrategy({
+    clientID: "e2ffec479fa621ef20b4",
+    clientSecret: process.env.GIT_SECRET,
+    callbackURL: "http://localhost:3000/users/auth/callback"
+  },
+  function(accessToken, refreshToken, profile, done) {
+    console.log("verifyF with", profile.username);
+    //associate with uID in db (first or create)
+    return done(null, profile);
+  }
+));
+
+passport.serializeUser(function(user, done) {
+  var token = user.id;
+  done(null, token);
+});
+
+passport.deserializeUser(function(user, done) {
+  // console.log("deserializeUser with", user);
+  done(null, user);
 });
 
 module.exports = app;
