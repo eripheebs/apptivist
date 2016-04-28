@@ -10,14 +10,16 @@ router.get('/events', function(req, res) {
 });
 
 router.post('/events', function(req, res) {
-  models.Event.create({
-    title: req.body.title,
-    description: req.body.description,
-    time: req.body.time,
-    location: req.body.location
-  }).then(function(Event) {
-    res.json(Event);
-  });
+  models.Event
+    .create({
+      title: req.body.title,
+      description: req.body.description,
+      time: req.body.time,
+      location: req.body.location
+    })
+    .then(function(Event) {
+      res.send(200);
+    });
 });
 
 router.get('/events/:event_id', function(req, res) {
