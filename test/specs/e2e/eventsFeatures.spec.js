@@ -7,6 +7,7 @@ describe('apptivistApp', function(){
       browser.get(baseUrl);
       expect(browser.getTitle()).toEqual('apptivistApp');
     });
+  });
 
     // it('displays a list of events', function(){
     // //   browser.get(baseUrl);
@@ -18,7 +19,7 @@ describe('apptivistApp', function(){
     // //   $('#submit').click();
     // //   expect($$('#event-list li').last().getText()).toMatch("testTitle");
     // // });
-  });
+  // });
 
   describe('Add an event', function() {
 
@@ -64,7 +65,7 @@ describe('apptivistApp', function(){
       $('#edit').click();
       expect($$('#event-list li').last().getText()).toMatch("testTitle");
     });
-
+  });
   describe('Events views', function() {
 
     it('list is available from /events', function(){
@@ -78,5 +79,4 @@ describe('apptivistApp', function(){
     });
 
   });
-
 });

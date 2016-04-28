@@ -17,6 +17,13 @@ describe('eventController', function() {
     location: "testLocation"
   }];
 
+  var secondDummyEvents =[{
+    title: "editTitle",
+    description: "editDescription",
+    time: "editTime",
+    location: "editLocation"
+  }];
+
   describe('initialize', function() {
 
     it('with an empty array', function(){
@@ -34,7 +41,18 @@ describe('eventController', function() {
     });
 
     it('updates the information of a specific event', function() {
+      spyOn(testController, "createEventWithId");
       testController.editEvent();
+      expect(testController.createEventWithId).toHaveBeenCalled();
+    });
+
+  });
+
+  describe('#deleteEvent', function(){
+
+    it('deletes an event from the page', function(){
+      testController.deleteEvent();
+      expect(testController.events).toEqual([]);
     });
 
   });
@@ -42,9 +60,9 @@ describe('eventController', function() {
   describe('#postEvent', function(){
 
     it('updates the current list', function() {
-      spyOn(testController, "createEvent");
+      spyOn(testController, "createEventWithId");
       testController.sendEvent();
-      expect(testController.createEvent).toHaveBeenCalled();
+      expect(testController.createEventWithId).toHaveBeenCalled();
     });
 
   });

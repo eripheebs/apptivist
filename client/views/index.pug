@@ -8,7 +8,7 @@ block pageContent
         p {{ events.description }}
         p {{ events.time }}
         p {{ events.location }}
-        button(id="showEditEventForm" ng-click="showEditEvent=!showEditEvent") Edit Event
+        button(id="showEditEventForm" ng-click="showEditEvent=!showEditEvent") Edit or Delete Event
         #editEvent(ng-controller="eventController as ctrl", ng-show="showEditEvent")
           span.label Title
           input#edit-event-title(ng-model='titleText', placeholder='e.g. Junior Doctor Protest')
@@ -19,6 +19,7 @@ block pageContent
           span.label Location
           input#edit-event-location(ng-model='locationText')
           button#submit(ng-click='ctrl.editEvent(titleText, descriptionText, timeText, locationText, events.id)') Confirm Changes
+          button#delete(ng-click='ctrl.deleteEvent(events.id)') Delete
     button(id="showNewEventForm" ng-click="showNewEvent=!showNewEvent")
       p Click to add an event
     #createEvent(ng-controller="eventController as ctrl", ng-show="showNewEvent")
