@@ -37,14 +37,10 @@ describe('eventController', function() {
 
   describe('#postEvent', function(){
 
-    it('posts an event to the server', function(){
-      httpBackend.expectPOST("/api/events",  dummyEvents).respond(201);
-      testController.postEvent(dummyEvents);
-      httpBackend.flush();
-    });
-
-    it('updates the current list', function(){
-
+    it('updates the current list', function() {
+      spyOn(testController, "createEvent");
+      testController.sendEvent();
+      expect(testController.createEvent).toHaveBeenCalled();
     });
 
   });

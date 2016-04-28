@@ -15,10 +15,6 @@ apptivistApp.controller('eventController',['$http', 'EventFactory', 'EventServic
     EventService.postEvent(self.createEvent(title, description, time, location));
   };
 
-  self.postEvent = function(eventData){
-    $http.post('/api/events', eventData, { 'Content-Type': 'application/json;charset=UTF-8' });
-  };
-
   self.createEvent = function(title, description, time, location){
     return new EventFactory(title, description, time, location);
   };

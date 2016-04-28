@@ -25,4 +25,13 @@ describe('EventService', function(){
       httpBackend.flush();
     });
   });
+
+  describe('#postEvents', function(){
+
+    it('posts a list of events', function(){
+      httpBackend.expectPOST("/api/events",  dummyEvents).respond(201);
+      EventService.postEvent(dummyEvents);
+      httpBackend.flush();
+    });
+  });
 });
