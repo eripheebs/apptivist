@@ -6,7 +6,6 @@ apptivistApp.controller('eventController',['$http', 'EventFactory', 'EventServic
   self.updateEvents = function() {
     EventService.getEvents().then(function(events){
       self.events = events;
-      console.log(events);
     });
   };
 
@@ -18,6 +17,15 @@ apptivistApp.controller('eventController',['$http', 'EventFactory', 'EventServic
 
   self.createEvent = function(title, description, time, location){
     return new EventFactory(title, description, time, location);
+  };
+
+  self.createEventWithId = function(title, description, time, location, id) {
+    return new EventFactory(title, description, time, location, id);
+  };
+
+  self.editEvent = function(title, description, time, location, id) {
+    console.log(id);
+    EventService.editEvent(title, description, time, location, id);
   };
 
 }]);

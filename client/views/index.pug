@@ -18,7 +18,7 @@ block pageContent
           input#edit-event-time(ng-model='timeText')
           span.label Location
           input#edit-event-location(ng-model='locationText')
-          button#submit(ng-click='ctrl.editEvent(titleText, descriptionText, timeText, locationText, event.id)') Confirm Changes
+          button#submit(ng-click='ctrl.editEvent(titleText, descriptionText, timeText, locationText, events.id)') Confirm Changes
     button(id="showNewEventForm" ng-click="showNewEvent=!showNewEvent")
       p Click to add an event
     #createEvent(ng-controller="eventController as ctrl", ng-show="showNewEvent")
