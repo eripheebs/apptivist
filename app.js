@@ -73,11 +73,12 @@ passport.use(new GithubStrategy({
 ));
 
 passport.serializeUser(function(user, done) {
-  var token = 'HELLO IM AN AWESOME AUTH TOKEN';
+  var token = user.id;
   done(null, token);
 });
 
 passport.deserializeUser(function(user, done) {
+  console.log("deserializeUser with", user);
   done(null, user);
 });
 

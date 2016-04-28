@@ -19,6 +19,7 @@ router.post('/', function(req, res) {
 });
 
 router.get('/:event_id', function(req, res) {
+  console.log('passing id',req.user);
   models.Event.find({
     where: {
       id: req.params.event_id
