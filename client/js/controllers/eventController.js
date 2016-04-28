@@ -12,11 +12,20 @@ apptivistApp.controller('eventController',['$http', 'EventFactory', 'EventServic
   self.updateEvents();
 
   self.sendEvent = function(title, description, time, location) {
-    EventService.postEvent(self.createEvent(title, description, time, location));
+    EventService.postEvent(self.createEventWithId(title, description, time, location));
   };
 
-  self.createEvent = function(title, description, time, location){
-    return new EventFactory(title, description, time, location);
+  self.createEventWithId = function(title, description, time, location, id) {
+    return new EventFactory(title, description, time, location, id);
+  };
+
+  self.editEvent = function(title, description, time, location, id) {
+    var eventData = {title: title, description: description, time: time, location: location, id: id};
+    EventService.editEvent(self.createEventWithId(title, description, time, location, id));
+  };
+
+  self.deleteEvent = function(id) {
+    EventService.deleteEvent(id);
   };
 
 }]);

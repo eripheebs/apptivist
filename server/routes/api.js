@@ -31,23 +31,21 @@ router.get('/events/:event_id', function(req, res) {
 });
 
 router.put('/events/:event_id', function(req, res) {
-  models.Event.find({
-    where: {
-      id: req.params.id
-    }
-  }).then(function(Event){
-    if(Event){
-      Event.updateAttributes({
+  console.log("called", req.params, req.body, req.query);
+  models.Event
+    .find({where: {
+      id: req.params.event_id
+    }})
+    .then(function(Evn){
+      Evn.updateAttributes({
         title: req.body.title,
         description: req.body.description,
-        time: req.body.description,
-        location: req.body.description
-      }).then(function(Event) {
-        res.send(Event);
-      });
-    }
-  }).then(function(Event){
-    res.json(Event)
+        time: req.body.time,
+        location: req.body.location
+      })
+    .then(function(Evn){
+      res.send(200);
+    });
   });
 });
 

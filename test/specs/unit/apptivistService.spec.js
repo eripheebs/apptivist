@@ -34,4 +34,22 @@ describe('EventService', function(){
       httpBackend.flush();
     });
   });
+
+  describe('#editEvent', function(){
+
+    it('edits and event', function(){
+      httpBackend.expectPOST("/api/events",  dummyEvents).respond(201);
+      EventService.postEvent(dummyEvents);
+      httpBackend.flush();
+    });
+  });
+
+  describe('#deleteEvent', function(){
+
+    // it('deletes an event', function(){
+    //   httpBackend.expectDELETE("/api/events",  dummyEvents).respond(200);
+    //   EventService.postEvent(dummyEvents);
+    //   httpBackend.flush();
+    // });
+  });
 });
