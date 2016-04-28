@@ -92,14 +92,14 @@ Create databases
 apptivist_development
 apptivist_test
 ```
-Connect databases
+Start server
 ```
-node app/models/database.js
+npm start
 ```
 To run tests, run these commands in separate terminal tabs
 *check where bower should go. we changed karma config to look for bower in app*
 ```
-node app/server.js
+npm start NODE_ENV=test
 webdriver-manager start
 ```
 ```

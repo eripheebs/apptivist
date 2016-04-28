@@ -13,10 +13,9 @@
     "jade": "~1.11.0",
     "morgan": "~1.6.1",
     "pg": "^4.5.3",
+    "pug": "^2.0.0-alpha6",
     "sequelize": "^3.22.0",
-    "serve-favicon": "~2.3.0",
-    "pug": "^2.0.0-alpha6"
-
+    "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
@@ -31,11 +30,8 @@
     "selenium-standalone": "^5.1.0",
     "wdio-jasmine-framework": "^0.1.9",
     "webdriverio": "^4.0.5",
-    "protractor": "^3.2.2",
-
-
-    "mocha": "^2.4.5",
     "protractor": "^3.3.0",
+    "mocha": "^2.4.5",
     "pug": "^2.0.0-alpha6",
     "sequelize": "^3.22.0",
     "should": "^8.3.1",
