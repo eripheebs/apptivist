@@ -15,9 +15,8 @@ describe('events', function(){
     chai.request(server)
       .get('/api/events')
       .end(function(err, res){
-        console.log(res.body)
         expect(res).to.have.status(200);
-        expect(res).to.be.json;
+        expect(res).tobe.json;
         expect(res.body).to.be.a('array');
         done();
       });

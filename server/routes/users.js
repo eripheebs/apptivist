@@ -14,7 +14,6 @@ router.get('/auth', passport.authenticate('github'));
 
 router.get('/auth/callback', passport.authenticate('github', { failureRedirect: '/' }),
   function(req, res) {
-    console.log("success for", req.user.username);
     models.User
       .find({
         where: {githubID: req.user.id}

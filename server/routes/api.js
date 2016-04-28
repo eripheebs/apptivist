@@ -26,12 +26,11 @@ router.get('/events/:event_id', function(req, res) {
       id: req.params.event_id
     }
   }).then(function(Event){
-    res.json(Event)
+    res.json(Event);
   });
 });
 
 router.put('/events/:event_id', function(req, res) {
-  console.log("called", req.params, req.body, req.query);
   models.Event
     .find({where: {
       id: req.params.event_id
@@ -56,7 +55,7 @@ router.delete('/events/:event_id', function(req, res) {
     }
   }).then(function(Event) {
     res.json(Event);
-  })
+  });
 
 });
 

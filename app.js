@@ -28,7 +28,6 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static('client'));
 
 app.use('/', index);
@@ -66,8 +65,6 @@ passport.use(new GithubStrategy({
     callbackURL: "http://localhost:3000/users/auth/callback"
   },
   function(accessToken, refreshToken, profile, done) {
-    console.log("verifyF with", profile.username);
-    //associate with uID in db (first or create)
     return done(null, profile);
   }
 ));
@@ -78,7 +75,6 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(user, done) {
-  // console.log("deserializeUser with", user);
   done(null, user);
 });
 
