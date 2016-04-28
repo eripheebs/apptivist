@@ -22,7 +22,6 @@ apptivistApp.service('EventService', ['$http', 'EventFactory', function($http, E
   };
 
   this.deleteEvent = function(id) {
-    console.log(id);
     return $http.delete('/api/events/'+ id, { 'Content-Type': 'application/json;charset=UTF-8' });
   };
 
