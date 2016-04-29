@@ -12,7 +12,9 @@ apptivistApp.controller('eventController',['$http', 'EventFactory', 'EventServic
 
   self.sendEvent = function(title, description, time, location) {
     EventService.postEvent(self.createEventWithId(title, description, time, location))
-      .then(self.updateEvents());
+      .then(self.updateEvents);
+
+
   };
 
   self.createEventWithId = function(title, description, time, location, id) {
@@ -21,12 +23,12 @@ apptivistApp.controller('eventController',['$http', 'EventFactory', 'EventServic
 
   self.editEvent = function(title, description, time, location, id) {
     EventService.editEvent(self.createEventWithId(title, description, time, location, id))
-      .then(self.updateEvents());
+      .then(self.updateEvents);
   };
 
   self.deleteEvent = function(id) {
     EventService.deleteEvent(id)
-      .then(self.updateEvents());
+      .then(self.updateEvents);
   };
 
   self.updateEvents();
