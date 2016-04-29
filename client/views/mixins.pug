@@ -9,8 +9,11 @@ mixin nav(name, id, style)
               span.icon-bar
               span.icon-bar
           a.navbar-brand(href="/")= name
-      a.navbar-brand.pull-right(href="/users/auth") Login with GitHub
-
+      if currentUser
+        a.navbar-brand.pull-right(href="/users/logout") Logout
+        a.navbar-brand.pull-right Welcome, #{currentUser.displayName}
+      else
+        a.navbar-brand.pull-right(href="/users/auth") Login with GitHub
 
 mixin nav_item(href, active)
     li(class=active): a( href=href )
