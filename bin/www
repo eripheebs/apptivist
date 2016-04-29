@@ -1,9 +1,3 @@
-#!/usr/bin/env node
-
-/**
- * Module dependencies.
- */
-
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 var app = require('../app');
