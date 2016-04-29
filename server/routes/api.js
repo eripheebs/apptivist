@@ -4,12 +4,14 @@ var app = express();
 var models  = require('../models');
 
 router.get('/events', function(req, res) {
+    console.log("get called");
   models.Event.findAll({}).then(function(dump){
     res.json(dump);
   });
 });
 
 router.post('/events', function(req, res) {
+    console.log("post called");
   models.Event
     .create({
       title: req.body.title,
@@ -18,6 +20,7 @@ router.post('/events', function(req, res) {
       location: req.body.location
     })
     .then(function(Event) {
+      console.log("sent 200");
       res.send(200);
     });
 });
