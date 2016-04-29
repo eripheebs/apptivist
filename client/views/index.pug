@@ -1,6 +1,11 @@
 extends ./layout.pug
 
 block pageContent
+  .jumbotron
+    h1 Hello, world!
+    p This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.
+    p: button("primary", "more.htm", "large") Learn more
+
   div(ng-controller="eventController as controller")
 
     button(id="showNewEventForm" ng-click="showNewEvent=!showNewEvent")
@@ -16,21 +21,18 @@ block pageContent
       input#new-event-location(ng-model='locationText')
       button#submit(ng-click='controller.sendEvent(titleText, descriptionText, timeText, locationText)') Create Event
 
-    ul(id="event-list", ng-repeat="event in controller.events track by $index")
-      li
-        p {{ event.title }}
-        p {{ event.description }}
-        p {{ event.time }}
-        p {{ event.location }}
-        button(id="showEditEventForm" ng-click="showEditEvent=!showEditEvent") Edit or Delete Event
-        #editEvent(ng-show="showEditEvent")
-          span.label Title
-          input#edit-event-title(ng-model='titleText')
-          span.label Description
-          input#edit-event-description(ng-model='descriptionText')
-          span.label Time
-          input#edit-event-time(ng-model='timeText')
-          span.label Location
-          input#edit-event-location(ng-model='locationText')
-          button#submit(ng-click='controller.editEvent(titleText, descriptionText, timeText, locationText, event.id)') Confirm Changes
-          button#delete(ng-click='controller.deleteEvent(event.id)') Delete
+    .row
+      .col-md-4.col-sm-6.col-xs-12(class="panel panel-default" id="event-list", ng-repeat="event in controller.events track by $index")
+        +panel("{{ event.title }}") {{ event.description }} {{ event.time }} {{ event.location }}
+            button(id="showEditEventForm" ng-click="showEditEvent=!showEditEvent") Edit or Delete Event
+            #editEvent(ng-show="showEditEvent")
+              span.label Title
+              input#edit-event-title(ng-model='titleText')
+              span.label Description
+              input#edit-event-description(ng-model='descriptionText')
+              span.label Time
+              input#edit-event-time(ng-model='timeText')
+              span.label Location
+              input#edit-event-location(ng-model='locationText')
+              button#submit(ng-click='controller.editEvent(titleText, descriptionText, timeText, locationText, event.id)') Confirm Changes
+              button#delete(ng-click='controller.deleteEvent(event.id)') Delete
