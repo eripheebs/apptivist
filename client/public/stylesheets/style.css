@@ -1,8 +1,160 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0px auto;
+  background-image: url(http://dailyfreepress.com/wp-content/uploads/Closeup_of_protesters_at_Ginowan_protests_2009-11-08.jpg);
+  background-size: 100%;
 }
 
 a {
   color: #00B7FF;
+}
+
+div{
+  margin: 0px auto;
+}
+
+hr{
+  max-width: 600px;
+  border: none;
+  border-top: medium double #333;
+  border-color: #e05038;
+}
+
+h1{
+  text-align: center;
+  font-family: Amatic SC;
+}
+
+#eventsBox{
+  max-width: 600px;
+  height: 60vh;
+  overflow: auto;
+  position: relative;
+  background-color: rgba(240,236,235, 0.6);
+  background: linear-gradient(rgba(240,236,235, 0.3), rgba(247,226,235, 0.6));
+  padding: 10px;
+}
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  background-color: #e05038;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #f0f0f5;
+}
+
+::-webkit-scrollbar-button {
+  background-color: #7c2929;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.event {
+  box-shadow: rgba(0, 0, 0, 0.0784314) 0px 1px 2px 0px;
+  color: rgb(61, 62, 68);
+  height: 150px;
+  width: 400px;
+  min-height: auto;
+  min-width: auto;
+  background: rgba(240, 203, 188, 1) none repeat scroll 0% 0% / auto padding-box border-box;
+  border: 1px solid rgb(233, 233, 236);
+  border-radius: 2px 2px 2px 2px;
+  outline: rgb(61, 62, 68) none 0px;
+  transition: box-shadow 0.3s ease-in-out 0s;
+  max-width: 500px;
+  margin: 27.7969px auto;
+  transition: margin 4s;
+}
+.event:hover{
+  max-width: 650px;
+}
+
+.details{
+  margin: 20px;
+}
+
+.details span{
+  display: block;
+  font-family: Amatic SC;
+  font-size: 17px;
+}
+
+#newEvent{
+  margin: 0px auto;
+  text-align: center;
+  font-family: Amatic SC;
+  font-size: 17px;
+}
+
+button{
+  padding: 17px;
+  color: #283018;
+  background-color: #f0eceb;
+  border: none;
+  border-radius: 10%;
+  font-family: Amatic SC;
+  font-size: 17px;
+}
+
+button:hover,
+#submitSearch.hover {
+  background-color: #c9c9c9;
+}
+
+button:active,
+button.active {
+  background-color: #27496d;
+  text-shadow: -1px 1px #193047;
+}
+
+#createEvent {
+  position:fixed;
+   top:0;
+   right:0;
+   margin-right: 10px;
+   margin-top: 10px;
+  box-shadow: rgba(0, 0, 0, 0.0784314) 3px 3px 2px 3px;
+  color: rgb(61, 62, 68);
+  background-color: #e05038;
+  width: 30%;
+  min-height: auto;
+  min-width: auto;
+}
+
+#showNewEventForm{
+  position:fixed;
+  top:10%;
+  right:10%;
+}
+
+span.label{
+  display: block;
+}
+
+button#submit{
+  display: block;
+  margin: 10px auto;
+  text-align: center;
+}
+
+input{
+  padding: 15px;
+  border: solid 3px #283018;
+  transition: border 0.3s;
+  font-family: Amatic SC;
+  font-size: 10px;
+}
+
+#input:focus,
+#input.focus {
+  border: solid 5px #969696;
 }
