@@ -71,8 +71,7 @@ passport.use(new GithubStrategy({
 ));
 
 passport.serializeUser(function(user, done) {
-  var token = user.id;
-  done(null, token);
+  done(null, user);
 });
 
 passport.deserializeUser(function(user, done) {

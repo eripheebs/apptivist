@@ -2,7 +2,6 @@ extends ./layout.pug
 
 block pageContent
   div(ng-controller="eventController as controller")
-
     button(id="showNewEventForm" ng-click="showNewEvent=!showNewEvent")
       p Click to add an event
     #createEvent(ng-show="showNewEvent")
