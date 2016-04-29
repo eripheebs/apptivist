@@ -1,14 +1,33 @@
 doctype html
+
+include mixins
+
 html(lang ="en" ng-app="apptivistApp")
   head
     meta(charset='utf-8')
+    link(rel='stylesheet', href='bower_components/bootstrap/dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='public/stylesheets/style.css')
     script(src='bower_components/angular/angular.js')
+    script(src='bower_components/bootstrap/dist/js/bootstrap.min.js')
+    script(src='bower_components/jquery/dist/jquery.min.js')
     script(src='js/app.js')
     script(src='js/controllers/eventController.js')
     script(src='js/factories/eventFactory.js')
     script(src='js/services/eventService.js')
     title apptivistApp
     block extraHead
-  body
-    a(href="/users/auth") Login with GitHub
+  body(style="padding-bottom:10rem;")
+    +nav("Project name", "dropdown_menu")
+      +nav_item( "index.html", "active" ) Home
+      +nav_item( "about.html" ) About
+      +nav_item( "contact.html" ) Contact
+      +nav_item_dropdown( "#" )( label="Dropdown" )
+        +nav_item( "#" ) Action
+        +nav_item( "#" ) Another action
+        +nav_item( "#" ) Something else here
+        +nav_divider
+        +nav_header Nav header
+        +nav_item( "#" ) Separated link
+        +nav_item( "#" ) One more separated link
+        a(href="/users/auth") Login with GitHub
     block pageContent

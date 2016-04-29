@@ -32,10 +32,10 @@ describe('eventController', function() {
 
   });
 
-  describe('#updateEvents', function() {
+  describe('#getEvents', function() {
 
     it('should update the events from the page', function(){
-      testController.updateEvents();
+      testController.getEvents();
       httpBackend.flush();
       expect(testController.events[0].title).toEqual(dummyEvents[0].title);
     });

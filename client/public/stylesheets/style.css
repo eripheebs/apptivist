@@ -1,8 +1,106 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #f5f5f5;
 }
 
-a {
-  color: #00B7FF;
+h2 {
+  margin: 25px;
+  text-align: center;
+  color: #565a5c;
+}
+
+/*index page*/
+
+.navbar {
+  padding: 10px;
+}
+
+.navbar a.navbar-brand.pull-right {
+  background-color: none;
+  color: #565a5c;
+  font-size: 120%;
+  font-weight: normal;;
+}
+
+.navbar a.navbar-brand {
+  color: #565a5c;
+  font-size: 200%;
+  font-weight: normal;;
+}
+
+.jumbotron {
+  background-image: url('http://dailyfreepress.com/wp-content/uploads/Closeup_of_protesters_at_Ginowan_protests_2009-11-08.jpg');
+  background-size: cover;
+  height: 625px;
+  padding-top: 0;
+}
+
+.jumbotron h1 {
+  padding-top: 180px;
+  text-align: center;
+  color: #fff !important;
+}
+
+.jumbotron p {
+  text-align: center;
+  color: #fff !important;
+}
+
+.jumbotron div {
+  text-align: center;
+}
+
+.jumbotron btn-default {
+  background-color: #fff;
+}
+
+.btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+    margin-top: 25px;
+}
+
+#createEvent {
+  padding: 25px;
+  margin-top: 85px;
+  background-color: rgba(0, 0, 0, 0.44);
+}
+
+#createEvent a.btn.btn-default {
+    margin-left: 25px;
+    margin-top: 0;
+}
+
+.label {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 100%;
+    font-weight: normal;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+
+.row {
+  margin-top: 50px;
+}
+
+.eventDetails {
+  text-align: center;
+}
+
+.eventDetails h3 {
+  margin-top: 0px;
+}
+
+.eventDetails span.label {
+  display: block;
+  color: #565a5c;
+}
+
+.eventDetails a.btn.btn-default {
+    display: block
 }
