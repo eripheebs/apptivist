@@ -1,4 +1,49 @@
-## Discovery
+# Apptivist
+Apptivist is a simple Angular/Node app with a Postgres database built to help activists host and promote events. It was built in 3 days as part of a Makers Academy hackathon.
+
+![firstscreenshot](https://cloud.githubusercontent.com/assets/16217360/15326510/39caf0de-1c46-11e6-8e2b-1b6ba1bce6a3.png)
+![secondscreenshot](https://cloud.githubusercontent.com/assets/16217360/15326514/3b1f6f6e-1c46-11e6-8342-fe9554ed5342.png)
+
+
+## Installation
+Clone repo and install dependencies.
+```
+git clone https://github.com/eripheebs/apptivist.git
+cd apptivist
+npm install
+bower install
+```
+Create databases
+```
+$ psql
+
+psql (9.5.1)
+Type "help" for help.
+
+kylebuttner=# create database apptivist_development;
+CREATE DATABASE
+kylebuttner=# create database apptivist_test;
+CREATE DATABASE
+```
+Start server
+```
+npm start
+```
+To run tests, first run these commands in separate terminal tabs
+```
+npm start NODE_ENV=test
+webdriver-manager start
+```
+Then, in a new tab, run
+```
+karma start test/karma.conf.js
+protractor test/protractor.conf.js
+```
+
+
+## Features (current and future)
+
+### Discovery
 * List events
 * Search events
 * Users
@@ -7,7 +52,7 @@
 * Feed based on location
 * Feed based on topics
 
-## Recruit
+### Recruit
 * Users join events
 * Edge cases and restrictions
 * Post public events
@@ -17,13 +62,13 @@
 * Groups
 * Find assistants
 
-## Communication
+### Communication
 * Message attendees
 * Post to social media
 * Collect user info
 * Updates
 
-## Organisation
+### Organisation
 * Make an events
 * Event metrics
 * Admin privileges
@@ -74,35 +119,4 @@ Edge cases and restrictions (Recruit)
 As a user,
 So that Apptivist is secure and usable,
 I would like user restrictions to be put in place.
-```
-
-## Day planner
-* 2 standups (morning and after lunch)
-* Front and backend
-
-## Setup
-```
-npm install
-bower install
-```
-Move bower components into app directory (change later)
-
-Create databases
-```
-apptivist_development
-apptivist_test
-```
-Start server
-```
-npm start
-```
-To run tests, run these commands in separate terminal tabs
-*check where bower should go. we changed karma config to look for bower in app*
-```
-npm start NODE_ENV=test
-webdriver-manager start
-```
-```
-karma start test/karma.conf.js
-protractor test/protractor.conf.js
 ```
